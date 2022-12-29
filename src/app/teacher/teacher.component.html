@@ -1,0 +1,77 @@
+<nav class="navbar navbar-light" style="background-color: #1196E7;">
+      
+    <span id="title"><h3 style="color: white;">Result Management System</h3> </span>
+    <button (click)="logout()" type="button" class="btn btn-danger" id="logout">Logout</button>
+  </nav>
+  <button (click)="clickAddStudent()" style="background-color: #1196E7;" id="addRecord" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Add Record
+  </button>
+  <h5 style="margin-left: 1rem; margin-top:1rem;">Total {{length}} students</h5>
+  <table class="table mx-3 my-3 table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Roll No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Marks</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of studentData">
+        <th>{{row.id}}</th>
+        <td>{{row.name}}</td>
+        <td>{{row.dob}}</td>
+        <td>{{row.marks}}</td>
+        <td>
+           <button (click)="onEdit(row)" data-toggle="modal" data-target="#exampleModal" id="edit" type="button" class="btn btn-primary btn-sm" style="background-color: #1196E7;">Edit</button>
+           <button (click)="deleteStudent(row)" type="button" class="btn btn-danger btn-sm" id="delete" style="margin-left: 1rem;">Delete</button>
+            
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Student Data</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="form-group">
+                  <label for="rollNo">Roll No</label>
+                  <input *ngIf="showUpdate" type="text" formControlName="id" class="form-control" id="rollNo" placeholder="" readonly>
+                  <input *ngIf="showAdd" type="text" formControlName="id" class="form-control" id="rollNo" placeholder="">
+                
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control"  formControlName="name" id="name" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label for="date">Date of birth</label>
+                    <input type="date"  formControlName="dob" class="form-control" id="marks" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label for="marks">Marks</label>
+                    <input  formControlName="marks" type="text" class="form-control" id="marks" placeholder="">
+                  </div>
+                 
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button *ngIf="showAdd" (click)="postStudentData()" type="button" class="btn btn-primary">Add</button>
+          <button *ngIf="showUpdate" (click)="updateStudentData()" type="button" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>

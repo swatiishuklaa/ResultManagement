@@ -1,0 +1,51 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "teacher": [
+    {
+      "email": "teacher@gmail.com",
+      "password": "12345"
+    }
+  ],
+  "StudentData": [
+    {
+      "id": "5",
+      "name": "swati",
+      "dob": "2022-09-16",
+      "marks": "99"
+    },
+    {
+      "id": "6",
+      "name": "Bhaskar",
+      "dob": "1997-10-16",
+      "marks": "78"
+    },
+    {
+      "id": "7",
+      "name": "umesh kumar",
+      "dob": "2022-09-28",
+      "marks": "87"
+    },
+    {
+      "id": "1",
+      "name": "shivani shukla",
+      "dob": "2022-12-01",
+      "marks": "100"
+    }
+  ]
+}
